@@ -1,23 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Step Calculator - Owner Rafi Boss</title>
+    <title>VIP Step Calculator - Owner Rafi Boss</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@500;700;800&family=Montserrat:wght@700;900&display=swap');
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Hind Siliguri', 'Montserrat', sans-serif;
         }
 
         body, html {
             width: 100%;
             min-height: 100vh;
-            background: #0b071e;
+            background: #040209;
             color: #ffffff;
             display: flex;
             flex-direction: column;
@@ -25,40 +25,63 @@
             -webkit-user-select: none;
         }
 
-        /* ফুল-স্ক্রিন মূল কন্টেইনার */
+        /* আল্ট্রা ব্যাকগ্রাউন্ড উইথ গ্লোইং অ্যানিমেশন */
         .fullscreen-container {
             width: 100%;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            background: radial-gradient(circle at top, #1e1b4b 0%, #0b071e 100%);
+            background: radial-gradient(circle at 50% 0%, #2d0b5a 0%, #080314 60%, #020105 100%);
+            position: relative;
+            overflow: hidden;
         }
 
-        /* টপ পার্পল হেডার সেকশন */
+        .fullscreen-container::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            height: 300px;
+            background: rgba(168, 85, 247, 0.25);
+            filter: blur(90px);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        /* রয়েল পার্পল ও গোল্ডেন হেডার */
         .card-header {
             width: 100%;
-            background: linear-gradient(135deg, #7c3aed, #4f46e5);
-            padding: 35px 20px 25px 20px;
+            background: linear-gradient(180deg, rgba(124, 58, 237, 0.4) 0%, rgba(15, 7, 32, 0.8) 100%);
+            backdrop-filter: blur(15px);
+            padding: 40px 20px 25px 20px;
             text-align: center;
-            border-bottom-left-radius: 28px;
-            border-bottom-right-radius: 28px;
-            box-shadow: 0 10px 30px rgba(124, 58, 237, 0.4);
+            border-bottom: 1px solid rgba(255, 215, 0, 0.25);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+            position: relative;
+            z-index: 2;
         }
 
-        /* লোগো/আইকন কন্টেইনার */
+        /* থ্রিডি গ্লোয়িং লোগো ফ্রেম */
         .logo-circle {
-            width: 85px;
-            height: 85px;
+            width: 90px;
+            height: 90px;
             margin: 0 auto 12px auto;
             border-radius: 50%;
-            border: 3px solid #ffd700;
+            border: 2px solid #ffd700;
             background: #000;
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+            box-shadow: 0 0 25px rgba(255, 215, 0, 0.6), inset 0 0 15px rgba(255, 215, 0, 0.4);
             overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-circle:hover {
+            transform: scale(1.05);
         }
 
         .logo-circle img {
@@ -71,225 +94,267 @@
             font-size: 13px;
             font-weight: 900;
             color: #ffd700;
-            letter-spacing: 0.8px;
-            margin-bottom: 4px;
+            letter-spacing: 1.5px;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+            margin-bottom: 2px;
+            text-transform: uppercase;
         }
 
         .header-subtitle {
-            font-size: 16px;
-            font-weight: 900;
-            letter-spacing: 1.5px;
-            margin-bottom: 14px;
-            color: #ffffff;
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #ffffff 0%, #c084fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        /* টেলিগ্রাম লোগো বাটন */
+        /* টেলিগ্রাম বাটন গ্লো */
         .contact-owner-btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            background: #0ea5e9;
+            background: linear-gradient(135deg, #0284c7, #0369a1);
             color: #ffffff;
-            font-size: 12px;
-            font-weight: 900;
-            padding: 8px 22px;
-            border-radius: 25px;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 8px 24px;
+            border-radius: 30px;
             text-decoration: none;
-            box-shadow: 0 0 15px rgba(14, 165, 233, 0.6);
+            border: 1px solid rgba(56, 189, 248, 0.5);
+            box-shadow: 0 0 20px rgba(2, 132, 199, 0.5);
             gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-owner-btn:active {
+            transform: scale(0.95);
         }
 
         .contact-owner-btn svg {
-            width: 16px;
-            height: 16px;
+            width: 17px;
+            height: 17px;
             fill: #ffffff;
         }
 
-        /* বডি বা ইনপুট সেকশন (ফুল স্ক্রিন জুড়েই থাকবে) */
+        /* ইনপুট বডি */
         .card-body {
             width: 100%;
-            max-width: 500px;
+            max-width: 480px;
             margin: 0 auto;
-            padding: 25px 20px;
+            padding: 30px 20px;
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 18px;
             flex-grow: 1;
+            position: relative;
+            z-index: 2;
         }
 
         .section-heading {
-            font-size: 18px;
-            font-weight: 900;
+            font-size: 22px;
+            font-weight: 800;
             color: #ffffff;
             text-align: center;
-            margin-bottom: 4px;
+            margin-bottom: 6px;
+            text-shadow: 0 2px 10px rgba(255, 255, 255, 0.2);
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .input-label {
+            font-size: 12px;
+            font-weight: 700;
+            color: #a7f3d0;
+            letter-spacing: 0.5px;
+            margin-left: 4px;
         }
 
         .input-box {
             width: 100%;
-            padding: 14px 18px;
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            font-size: 15px;
-            font-weight: 800;
+            padding: 16px 20px;
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            border-radius: 18px;
+            font-size: 16px;
+            font-weight: 700;
             color: #ffffff;
             outline: none;
-            background: rgba(255, 255, 255, 0.06);
-            backdrop-filter: blur(5px);
+            background: rgba(15, 7, 32, 0.65);
+            backdrop-filter: blur(10px);
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6);
             transition: all 0.3s ease;
         }
 
         .input-box::placeholder {
-            color: #94a3b8;
+            color: #64748b;
         }
 
         .input-box:focus {
-            border-color: #8b5cf6;
-            background: rgba(255, 255, 255, 0.12);
-            box-shadow: 0 0 15px rgba(139, 92, 246, 0.3);
+            border-color: #ffd700;
+            background: rgba(25, 12, 50, 0.85);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.25), inset 0 2px 4px rgba(0, 0, 0, 0.8);
         }
 
         .calculate-btn {
             width: 100%;
-            padding: 16px;
-            background: linear-gradient(135deg, #6366f1, #4338ca);
-            color: #ffffff;
+            padding: 18px;
+            background: linear-gradient(135deg, #ffd700 0%, #d97706 100%);
+            color: #000000;
             border: none;
-            border-radius: 16px;
-            font-size: 14px;
+            border-radius: 18px;
+            font-size: 16px;
             font-weight: 900;
             cursor: pointer;
-            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.5);
+            box-shadow: 0 10px 30px rgba(217, 119, 6, 0.45);
             text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: transform 0.1s ease;
-        }
-
-        .calculate-btn:active {
-            transform: scale(0.98);
-        }
-
-        /* স্টেপ রেজাল্ট বক্সসমূহ */
-        .results-container {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
+            letter-spacing: 1.5px;
+            transition: all 0.2s ease;
             margin-top: 5px;
         }
 
+        .calculate-btn:active {
+            transform: scale(0.97);
+            box-shadow: 0 5px 15px rgba(217, 119, 6, 0.3);
+        }
+
+        /* পার্পল ও গোল্ডেন ভাইব রেজাল্ট কার্ডস */
+        .results-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
         .step-result-row {
-            background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.35) 0%, rgba(67, 56, 202, 0.25) 100%);
+            border: 1px solid rgba(168, 85, 247, 0.4);
+            backdrop-filter: blur(12px);
             color: #ffffff;
-            padding: 14px 20px;
-            border-radius: 16px;
+            padding: 16px 22px;
+            border-radius: 18px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 13px;
-            font-weight: 800;
-            box-shadow: 0 6px 18px rgba(139, 92, 246, 0.35);
-            animation: fadeIn 0.3s ease-in-out;
+            font-size: 15px;
+            font-weight: 700;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(6px); }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(15px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         .step-label {
-            font-weight: 900;
+            font-weight: 800;
+            color: #e9d5ff;
             letter-spacing: 0.5px;
         }
 
         .step-value {
             font-weight: 900;
-            color: #fef08a;
-            font-size: 14px;
+            color: #ffd700;
+            font-size: 17px;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
         }
 
-        /* ব্যবহারের নিয়ম বা গাইড সেকশন */
+        /* সুন্দর বাংলা গাইড কার্ড */
         .instruction-box {
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px dashed rgba(255, 255, 255, 0.15);
-            border-radius: 14px;
-            padding: 12px 15px;
-            font-size: 10px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px dashed rgba(255, 215, 0, 0.3);
+            border-radius: 18px;
+            padding: 16px 18px;
+            font-size: 13px;
             color: #cbd5e1;
-            font-weight: 700;
-            line-height: 1.5;
+            font-weight: 500;
+            line-height: 1.7;
             text-align: left;
-            margin-top: 10px;
+            margin-top: 15px;
+            backdrop-filter: blur(5px);
         }
 
         .instruction-box b {
             color: #ffd700;
+            font-weight: 800;
+            font-size: 14px;
         }
 
         /* ফুটার */
         .card-footer {
             width: 100%;
-            padding: 16px;
+            padding: 18px;
             text-align: center;
-            background: rgba(0, 0, 0, 0.4);
+            background: rgba(5, 2, 12, 0.9);
             color: #ffd700;
-            font-size: 11px;
-            font-weight: 900;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            letter-spacing: 0.5px;
+            font-size: 12px;
+            font-weight: 800;
+            border-top: 1px solid rgba(255, 215, 0, 0.15);
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 2;
         }
     </style>
 </head>
 <body>
 
     <div class="fullscreen-container">
-        <!-- টপ হেডার -->
+        <!-- টপ ভিআইপি হেডার -->
         <div class="card-header">
             <div class="logo-circle">
                 <img src="https://imagepaste.org/i/tbt6u278.jpg" alt="Owner Logo">
             </div>
-            <div class="header-title">⭐ OWNER RAFI BOSS ⭐</div>
-            <div class="header-subtitle">STEP MAKER</div>
+            <div class="header-title">👑 OWNER RAFI BOSS 👑</div>
+            <div class="header-subtitle">VIP STEP MAKER</div>
             
-            <!-- টেলিগ্রাম লোগো বাটন -->
             <a href="https://t.me/GREND_OWNER11" target="_blank" class="contact-owner-btn" title="Telegram">
                 <svg viewBox="0 0 24 24">
                     <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.121l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.458c.538-.196 1.006.128.832.941z"/>
                 </svg>
+                অ্যাডমিন টেলিগ্রাম
             </a>
         </div>
 
-        <!-- ইনপুট ও ক্যালকুলেশন অংশ (ফুল স্ক্রিন) -->
+        <!-- ইনপুট ও ক্যালকুলেশন অংশ -->
         <div class="card-body">
-            <div class="section-heading">Step হিসাব করুন</div>
+            <div class="section-heading">✨ স্টেপ হিসাব করুন ✨</div>
             
-            <!-- ব্যালেন্স ইনপুট -->
-            <input type="number" id="balance-input" class="input-box" placeholder="Total Balance (e.g., 500)">
+            <div class="input-group">
+                <span class="input-label">মোট ব্যালেন্স (Total Balance)</span>
+                <input type="number" id="balance-input" class="input-box" placeholder="যেমন: 500">
+            </div>
             
-            <!-- মোট স্টেপ সংখ্যা ইনপুট -->
-            <input type="number" id="steps-count-input" class="input-box" placeholder="Total Steps (e.g., 7)" value="7">
+            <div class="input-group">
+                <span class="input-label">স্টেপ সংখ্যা (Total Steps)</span>
+                <input type="number" id="steps-count-input" class="input-box" placeholder="যেমন: 7" value="7">
+            </div>
 
-            <!-- ক্যালকুলেট বাটন -->
-            <button class="calculate-btn" onclick="generateSteps()">CALCULATE</button>
+            <button class="calculate-btn" onclick="generateSteps()">⚡ CALCULATE ⚡</button>
 
-            <!-- আউটপুট বা স্টেপ রেজাল্ট দেখানোর লিস্ট -->
+            <!-- আউটপুট রেজাল্ট -->
             <div class="results-container" id="steps-output-container">
-                <div style="text-align: center; color: #94a3b8; font-size: 12px; padding: 15px; font-weight: 700;">
-                    ব্যালেন্স এবং স্টেপ সংখ্যা দিয়ে CALCULATE এ চাপ দিন
+                <div style="text-align: center; color: #94a3b8; font-size: 13px; padding: 20px; font-weight: 700;">
+                    ক্যালকুলেট করতে ব্যালেন্স দিয়ে CALCULATE বাটনে চাপ দিন
                 </div>
             </div>
 
-            <!-- ব্যবহারের নিয়ম বা গাইড বক্স -->
+            <!-- ব্যবহারের সুন্দর বাংলা নির্দেশিকা -->
             <div class="instruction-box">
-                <b>📌 ব্যবহারের নিয়ম:</b><br>
-                ১. প্রথম বক্সে আপনার মোট ব্যালেন্স লিখুন (যেমন: 500)।<br>
-                ২. দ্বিতীয় বক্সে কয়টি স্টেপ চান তা লিখুন (যেমন: 7)।<br>
-                ৩. এরপর <b>CALCULATE</b> বাটনে ক্লিক করলে প্রতি স্টেপের সঠিক বাজি অ্যামাউন্ট চলে আসবে।
+                <b>📌 ব্যবহারের সঠিক উপায়:</b><br>
+                ১. আপনার ওয়ালেটে থাকা মোট ব্যালেন্স প্রথম বক্সে টাইপ করুন।<br>
+                ২. কত লেভেল বা স্টেপে ব্যাকআপ রাখতে চান (যেমন: 7 স্টেপ) তা বসান।<br>
+                ৩. <b>CALCULATE</b> চাপলেই নিখুঁত মান চলে আসবে!
             </div>
         </div>
 
         <!-- ফুটার -->
         <div class="card-footer">
-            ⚡ OWNER RAFI BOSS VIP TOOL ⚡
+            ⚡ POWERED BY OWNER RAFI BOSS VIP SYSTEM ⚡
         </div>
     </div>
 
@@ -300,12 +365,12 @@
             let container = document.getElementById('steps-output-container');
 
             if (isNaN(balance) || balance <= 0) {
-                container.innerHTML = `<div style="text-align: center; color: #ef4444; font-size: 12px; font-weight: 800; padding: 10px;">সঠিক ব্যালেন্স লিখুন!</div>`;
+                container.innerHTML = `<div style="text-align: center; color: #ef4444; font-size: 13px; font-weight: 800; padding: 12px; background: rgba(239, 68, 68, 0.1); border-radius: 12px; border: 1px solid rgba(239, 68, 68, 0.3);">⚠️ অনুগ্রহ করে সঠিক ব্যালেন্স পরিমাণ লিখুন!</div>`;
                 return;
             }
 
             if (isNaN(totalSteps) || totalSteps <= 0 || totalSteps > 20) {
-                container.innerHTML = `<div style="text-align: center; color: #ef4444; font-size: 12px; font-weight: 800; padding: 10px;">১ থেকে ২০ এর মধ্যে স্টেপ সংখ্যা দিন!</div>`;
+                container.innerHTML = `<div style="text-align: center; color: #ef4444; font-size: 13px; font-weight: 800; padding: 12px; background: rgba(239, 68, 68, 0.1); border-radius: 12px; border: 1px solid rgba(239, 68, 68, 0.3);">⚠️ ১ থেকে ২০ এর মধ্যে স্টেপ সংখ্যা দিন!</div>`;
                 return;
             }
 
@@ -324,8 +389,8 @@
                 let stepAmount = (balance * (baseWeights[i] / totalWeight));
                 htmlContent += `
                     <div class="step-result-row">
-                        <span class="step-label">Step ${i + 1}:</span>
-                        <span class="step-value">${stepAmount.toFixed(2)}৳</span>
+                        <span class="step-label">লেভেল ${i + 1} (Step ${i + 1}):</span>
+                        <span class="step-value">${stepAmount.toFixed(2)} ৳</span>
                     </div>
                 `;
             }
