@@ -49,7 +49,7 @@
             border-bottom-right-radius: 20px;
         }
 
-        /* প্রোফাইল ভিডিও কন্টেইনার */
+        /* লোগো/আইকন কন্টেইনার (নতুন ইমেজ সহ) */
         .logo-circle {
             width: 75px;
             height: 75px;
@@ -64,7 +64,7 @@
             justify-content: center;
         }
 
-        .logo-circle video {
+        .logo-circle img {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -203,23 +203,33 @@
             color: #fef08a;
         }
 
+        /* ব্যবহার করার নিয়ম বা গাইড সেকশন */
+        .instruction-box {
+            background: #f1f5f9;
+            border: 1px dashed #cbd5e1;
+            border-radius: 12px;
+            padding: 10px;
+            font-size: 9px;
+            color: #475569;
+            font-weight: 700;
+            line-height: 1.4;
+            text-align: left;
+        }
+
+        .instruction-box b {
+            color: #1e293b;
+        }
+
         /* ফুটার */
         .card-footer {
             padding: 12px;
             text-align: center;
             background: #03050b;
-            color: #64748b;
-            font-size: 9px;
-            font-weight: 800;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 5px;
+            color: #ffd700;
+            font-size: 10px;
+            font-weight: 900;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .card-footer span {
-            color: #38bdf8;
+            letter-spacing: 0.5px;
         }
     </style>
 </head>
@@ -228,14 +238,14 @@
     <div class="main-card">
         <!-- টপ হেডার -->
         <div class="card-header">
-            <!-- প্রোফাইল ভিডিও -->
+            <!-- নতুন ইমেজ লোগো -->
             <div class="logo-circle">
-                <video src="https://pdftolink.io/file/r2_dXNlcnMvZ3Vlc3QvOTVlNzQxN2UtNDRkNi00MGYyLTk1MDAtYmZlOTVkNmM2NmI1Lm1wNA" autoplay loop muted playsinline></video>
+                <img src="https://imagepaste.org/i/tbt6u278.jpg" alt="Owner Logo">
             </div>
             <div class="header-title">⭐ OWNER RAFI BOSS ⭐</div>
             <div class="header-subtitle">STEP MAKER</div>
             
-            <!-- শুধুমাত্র টেলিগ্রাম লোগো বাটন -->
+            <!-- টেলিগ্রাম লোগো বাটন -->
             <a href="https://t.me/GREND_OWNER11" target="_blank" class="contact-owner-btn" title="Telegram">
                 <svg viewBox="0 0 24 24">
                     <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.121l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.458c.538-.196 1.006.128.832.941z"/>
@@ -262,11 +272,19 @@
                     ব্যালেন্স এবং স্টেপ সংখ্যা দিয়ে CALCULATE এ চাপ দিন
                 </div>
             </div>
+
+            <!-- ব্যবহারের নিয়ম বা গাইড বক্স -->
+            <div class="instruction-box">
+                <b>📌 ব্যবহারের নিয়ম:</b><br>
+                ১. প্রথম বক্সে আপনার মোট ব্যালেন্স লিখুন (যেমন: 500)।<br>
+                ২. দ্বিতীয় বক্সে কয়টি স্টেপ চান তা লিখুন (যেমন: 7)।<br>
+                ৩. এরপর <b>CALCULATE</b> বাটনে ক্লিক করলে প্রতি স্টেপের সঠিক বাজি অ্যামাউন্ট চলে আসবে।
+            </div>
         </div>
 
         <!-- ফুটার -->
         <div class="card-footer">
-            ⚡ Powered by <span>Netlify & Rafi Boss</span> ⚡
+            ⚡ OWNER RAFI BOSS VIP TOOL ⚡
         </div>
     </div>
 
