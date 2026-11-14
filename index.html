@@ -26,7 +26,7 @@
             overflow: hidden;
         }
 
-        /* মেইন স্ক্রিন কন্টেইনার স্ক্রিনশটের মতো পার্পল টপ এবং গ্রে ব্যাকগ্রাউন্ড */
+        /* মেইন স্ক্রিন কন্টেইনার */
         .app-container {
             width: 100%;
             height: 100vh;
@@ -37,7 +37,7 @@
             overflow-y: auto;
         }
 
-        /* স্ক্রিনশটের মতো পার্পল টপ হেডার */
+        /* পার্পল টপ হেডার */
         .top-header {
             width: 100%;
             background: linear-gradient(135deg, #6d28d9 0%, #4c1d95 100%);
@@ -48,17 +48,35 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
 
+        /* 🔥 গ্লোয়িং ও জলজল করা প্রোফাইল পিকচার ফ্রেম */
         .header-icon-box {
-            width: 38px;
-            height: 38px;
-            background: #22c55e;
-            border-radius: 8px;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: #000;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 2px 8px rgba(34, 197, 94, 0.4);
             overflow: hidden;
             flex-shrink: 0;
+            border: 2px solid #ffd700;
+            box-shadow: 0 0 15px #ffd700, 0 0 25px #ff3366, inset 0 0 8px #00ffff;
+            animation: profileGlow 2.5s infinite alternate;
+        }
+
+        @keyframes profileGlow {
+            0% { 
+                border-color: #ffd700; 
+                box-shadow: 0 0 10px #ffd700, 0 0 20px #ff3366; 
+            }
+            50% { 
+                border-color: #00ff88; 
+                box-shadow: 0 0 15px #00ff88, 0 0 25px #00ffff; 
+            }
+            100% { 
+                border-color: #da70d6; 
+                box-shadow: 0 0 10px #da70d6, 0 0 20px #ff3366; 
+            }
         }
 
         .header-icon-box img {
@@ -68,10 +86,11 @@
         }
 
         .header-title {
-            font-size: 20px;
+            font-size: 19px;
             font-weight: 700;
             color: #ffffff;
             letter-spacing: 0.5px;
+            text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
         }
 
         /* সেন্ট্রাল হোয়াইট কার্ড এরিয়া */
@@ -188,7 +207,6 @@
             font-size: 16px;
         }
 
-        /* ফুটার বা ছোট ইনফো */
         .app-footer {
             text-align: center;
             font-size: 11px;
@@ -202,12 +220,12 @@
 <body>
 
     <div class="app-container">
-        <!-- স্ক্রিনশটের হুবহু পার্পল টপ হেডার এবং প্রোফাইল ইমেজ -->
+        <!-- পার্পল টপ হেডার ও জলজল করা প্রোফাইল পিকচার -->
         <div class="top-header">
             <div class="header-icon-box">
                 <img src="https://imagepaste.org/i/sawpkd8t.jpg" alt="Profile Icon">
             </div>
-            <div class="header-title">Step Calculator</div>
+            <div class="header-title">Owner Rafi Boss</div>
         </div>
 
         <!-- মূল সাদা কার্ড ও ইনপুট সেকশন -->
