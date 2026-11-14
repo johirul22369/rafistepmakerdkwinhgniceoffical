@@ -36,21 +36,22 @@
             overflow: hidden;
         }
 
-        /* পার্পল টপ হেডার (স্ক্রিনশট অনুযায়ী পজিশন করা) */
+        /* পার্পল টপ হেডার (স্ক্রিনশট অনুযায়ী ফিক্সড) */
         .top-header {
             width: 100%;
             background: linear-gradient(135deg, #6d28d9 0%, #4c1d95 100%);
-            padding: 10px 16px;
+            padding: 8px 14px;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            flex-shrink: 0;
         }
 
-        /* 🔥 জলজল করা গ্লোয়িং প্রোফাইল পিকচার (গোল বৃত্ত)[span_2](start_span)[span_2](end_span) */
+        /* 🔥 জলজল করা গ্লোয়িং প্রোফাইল পিকচার */
         .header-icon-box {
-            width: 38px;
-            height: 38px;
+            width: 34px;
+            height: 34px;
             border-radius: 50%;
             background: #000;
             display: flex;
@@ -59,14 +60,14 @@
             overflow: hidden;
             flex-shrink: 0;
             border: 2px solid #ffd700;
-            box-shadow: 0 0 10px #ffd700, 0 0 20px #ff3366;
+            box-shadow: 0 0 8px #ffd700, 0 0 15px #ff3366;
             animation: profileGlow 2.5s infinite alternate;
         }
 
         @keyframes profileGlow {
-            0% { border-color: #ffd700; box-shadow: 0 0 8px #ffd700, 0 0 15px #ff3366; }
-            50% { border-color: #00ff88; box-shadow: 0 0 12px #00ff88, 0 0 20px #00ffff; }
-            100% { border-color: #da70d6; box-shadow: 0 0 8px #da70d6, 0 0 15px #ff3366; }
+            0% { border-color: #ffd700; box-shadow: 0 0 6px #ffd700, 0 0 12px #ff3366; }
+            50% { border-color: #00ff88; box-shadow: 0 0 10px #00ff88, 0 0 15px #00ffff; }
+            100% { border-color: #da70d6; box-shadow: 0 0 6px #da70d6, 0 0 12px #ff3366; }
         }
 
         .header-icon-box img {
@@ -76,47 +77,45 @@
         }
 
         .header-title {
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 700;
             color: #ffffff;
             letter-spacing: 0.5px;
-            text-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+            text-shadow: 0 0 6px rgba(255, 215, 0, 0.6);
         }
 
-        /* সেন্ট্রাল হোয়াইট কার্ড এরিয়া */
+        /* সেন্ট্রাল হোয়াইট কার্ড (সবকিছু যেন স্ক্রিনের ভেতরে ফিট থাকে) */
         .card-body {
             width: 92%;
             max-width: 420px;
-            margin: 10px auto 0 auto;
+            margin: 8px auto 0 auto;
             background: #ffffff;
-            border-radius: 16px;
-            padding: 12px 16px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            border-radius: 14px;
+            padding: 10px 14px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 6px;
         }
 
         .card-heading {
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 700;
             color: #1e293b;
             text-align: center;
-            margin-bottom: -2px;
         }
 
         .input-group {
             display: flex;
             flex-direction: column;
-            gap: 2px;
         }
 
         .input-box {
             width: 100%;
-            padding: 9px 14px;
+            padding: 8px 12px;
             border: 1.5px solid #cbd5e1;
-            border-radius: 10px;
-            font-size: 14px;
+            border-radius: 8px;
+            font-size: 13.5px;
             font-weight: 600;
             color: #0f172a;
             outline: none;
@@ -131,35 +130,34 @@
 
         .input-box:focus {
             border-color: #6d28d9;
-            box-shadow: 0 0 0 3px rgba(109, 40, 217, 0.15);
+            box-shadow: 0 0 0 2px rgba(109, 40, 217, 0.15);
         }
 
         .calculate-btn {
             width: 100%;
-            padding: 10px;
+            padding: 9px;
             background: linear-gradient(135deg, #6d28d9 0%, #5b21b6 100%);
             color: #ffffff;
             border: none;
-            border-radius: 10px;
-            font-size: 15px;
+            border-radius: 8px;
+            font-size: 14px;
             font-weight: 700;
             cursor: pointer;
-            box-shadow: 0 4px 12px rgba(109, 40, 217, 0.35);
+            box-shadow: 0 3px 10px rgba(109, 40, 217, 0.35);
             text-transform: capitalize;
             letter-spacing: 0.5px;
-            transition: all 0.2s ease;
         }
 
         .calculate-btn:active {
             transform: scale(0.98);
         }
 
-        /* 🎯 ৭টি স্টেপ একসাথে দেখানোর জন্য কমপ্যাক্ট রেজাল্ট কন্টেইনার (কোনো স্ক্রল লাগবে না)[span_3](start_span)[span_3](end_span) */
+        /* 🎯 ৭টি স্টেপ একসাথে নির্দিষ্ট জায়গার ভেতরে দেখানোর কমপ্যাক্ট কন্টেইনার[span_3](start_span)[span_3](end_span) */
         .results-container {
             display: flex;
             flex-direction: column;
-            gap: 4px;
-            max-height: 230px;
+            gap: 3px;
+            max-height: 190px;
             overflow: hidden;
         }
 
@@ -167,12 +165,12 @@
             background: #f8fafc;
             border: 1px solid #e2e8f0;
             color: #1e293b;
-            padding: 6px 12px;
-            border-radius: 8px;
+            padding: 4px 10px;
+            border-radius: 6px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 12.5px;
+            font-size: 12px;
             font-weight: 700;
         }
 
@@ -183,7 +181,7 @@
         .step-value {
             color: #6d28d9;
             font-weight: 800;
-            font-size: 14px;
+            font-size: 13px;
         }
 
         .app-footer {
@@ -191,15 +189,15 @@
             font-size: 10px;
             color: #94a3b8;
             font-weight: 600;
-            margin-top: 8px;
-            padding-bottom: 10px;
+            margin-top: 6px;
+            padding-bottom: 6px;
         }
     </style>
 </head>
 <body>
 
     <div class="app-container">
-        <!-- টপ হেডার: গোল বৃত্তে জলজল করা প্রোফাইল পিক ও পাশে নাম[span_4](start_span)[span_4](end_span) -->
+        <!-- টপ হেডার -->
         <div class="top-header">
             <div class="header-icon-box">
                 <img src="https://imagepaste.org/i/sawpkd8t.jpg" alt="Profile Icon">
@@ -207,7 +205,7 @@
             <div class="header-title">Owner Rafi Boss</div>
         </div>
 
-        <!-- মূল সাদা কার্ড ও ইনপুট সেকশন -->
+        <!-- মূল সাদা কার্ড -->
         <div class="card-body">
             <div class="card-heading">Step হিসাব করুন</div>
             
@@ -221,7 +219,7 @@
 
             <button class="calculate-btn" onclick="generateSteps()">Calculate</button>
 
-            <!-- আউটপুট রেজাল্ট (৭টি স্টেপ একসাথে ফিট করা)[span_5](start_span)[span_5](end_span) -->
+            <!-- আউটপুট রেজাল্ট (৭টি স্টেপ একসাথে ফিক্সড)[span_4](start_span)[span_4](end_span) -->
             <div class="results-container" id="steps-output-container"></div>
         </div>
 
@@ -237,12 +235,12 @@
             let container = document.getElementById('steps-output-container');
 
             if (isNaN(balance) || balance <= 0) {
-                container.innerHTML = `<div style="text-align: center; color: #ef4444; font-size: 12px; font-weight: 700; padding: 6px; background: rgba(239, 68, 68, 0.1); border-radius: 6px;">⚠️ সঠিক ব্যালেন্স লিখুন!</div>`;
+                container.innerHTML = `<div style="text-align: center; color: #ef4444; font-size: 11px; font-weight: 700; padding: 4px; background: rgba(239, 68, 68, 0.1); border-radius: 4px;">⚠️ সঠিক ব্যালেন্স লিখুন!</div>`;
                 return;
             }
 
             if (isNaN(totalSteps) || totalSteps <= 0 || totalSteps > 10) {
-                container.innerHTML = `<div style="text-align: center; color: #ef4444; font-size: 12px; font-weight: 700; padding: 6px; background: rgba(239, 68, 68, 0.1); border-radius: 6px;">⚠️ ১ থেকে ১০ এর মধ্যে স্টেপ দিন!</div>`;
+                container.innerHTML = `<div style="text-align: center; color: #ef4444; font-size: 11px; font-weight: 700; padding: 4px; background: rgba(239, 68, 68, 0.1); border-radius: 4px;">⚠️ ১ থেকে ১০ এর মধ্যে স্টেপ দিন!</div>`;
                 return;
             }
 
