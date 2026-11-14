@@ -36,7 +36,7 @@
             overflow: hidden;
         }
 
-        /* পার্পল টপ হেডার (প্রোফাইল ও নাম ঠিকঠাক বিন্যাস করা) */
+        /* পার্পল টপ হেডার (স্ক্রিনশট অনুযায়ী পজিশন করা) */
         .top-header {
             width: 100%;
             background: linear-gradient(135deg, #6d28d9 0%, #4c1d95 100%);
@@ -47,10 +47,10 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
 
-        /* 🔥 জলজল করা গ্লোয়িং প্রোফাইল পিকচার */
+        /* 🔥 জলজল করা গ্লোয়িং প্রোফাইল পিকচার (গোল বৃত্ত)[span_2](start_span)[span_2](end_span) */
         .header-icon-box {
-            width: 36px;
-            height: 36px;
+            width: 38px;
+            height: 38px;
             border-radius: 50%;
             background: #000;
             display: flex;
@@ -59,13 +59,13 @@
             overflow: hidden;
             flex-shrink: 0;
             border: 2px solid #ffd700;
-            box-shadow: 0 0 10px #ffd700, 0 0 18px #ff3366;
+            box-shadow: 0 0 10px #ffd700, 0 0 20px #ff3366;
             animation: profileGlow 2.5s infinite alternate;
         }
 
         @keyframes profileGlow {
             0% { border-color: #ffd700; box-shadow: 0 0 8px #ffd700, 0 0 15px #ff3366; }
-            50% { border-color: #00ff88; box-shadow: 0 0 12px #00ff88, 0 0 18px #00ffff; }
+            50% { border-color: #00ff88; box-shadow: 0 0 12px #00ff88, 0 0 20px #00ffff; }
             100% { border-color: #da70d6; box-shadow: 0 0 8px #da70d6, 0 0 15px #ff3366; }
         }
 
@@ -75,51 +75,45 @@
             object-fit: cover;
         }
 
-        .header-title-wrap {
-            display: flex;
-            flex-direction: column;
-        }
-
         .header-title {
-            font-size: 15px;
+            font-size: 16px;
             font-weight: 700;
             color: #ffffff;
             letter-spacing: 0.5px;
-            text-shadow: 0 0 6px rgba(255, 215, 0, 0.5);
-            line-height: 1.2;
+            text-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
         }
 
-        /* সেন্ট্রাল হোয়াইট কার্ড এরিয়া (কমপ্যাক্ট করা যাতে স্ক্রল না লাগে) */
+        /* সেন্ট্রাল হোয়াইট কার্ড এরিয়া */
         .card-body {
             width: 92%;
             max-width: 420px;
-            margin: 12px auto 0 auto;
+            margin: 10px auto 0 auto;
             background: #ffffff;
             border-radius: 16px;
-            padding: 14px 16px;
+            padding: 12px 16px;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 8px;
         }
 
         .card-heading {
-            font-size: 17px;
+            font-size: 16px;
             font-weight: 700;
             color: #1e293b;
             text-align: center;
-            margin-bottom: 0px;
+            margin-bottom: -2px;
         }
 
         .input-group {
             display: flex;
             flex-direction: column;
-            gap: 4px;
+            gap: 2px;
         }
 
         .input-box {
             width: 100%;
-            padding: 10px 14px;
+            padding: 9px 14px;
             border: 1.5px solid #cbd5e1;
             border-radius: 10px;
             font-size: 14px;
@@ -142,7 +136,7 @@
 
         .calculate-btn {
             width: 100%;
-            padding: 11px;
+            padding: 10px;
             background: linear-gradient(135deg, #6d28d9 0%, #5b21b6 100%);
             color: #ffffff;
             border: none;
@@ -160,26 +154,25 @@
             transform: scale(0.98);
         }
 
-        /* আউটপুট রেজাল্ট সেকশন (৭টি স্টেপ একসাথে স্ক্রিনশটের মতো ফিট করার জন্য কমপ্যাক্ট সাইজ)[span_2](start_span)[span_2](end_span) */
+        /* 🎯 ৭টি স্টেপ একসাথে দেখানোর জন্য কমপ্যাক্ট রেজাল্ট কন্টেইনার (কোনো স্ক্রল লাগবে না)[span_3](start_span)[span_3](end_span) */
         .results-container {
             display: flex;
             flex-direction: column;
-            gap: 5px;
-            max-height: 220px;
-            overflow-y: hidden;
-            padding-right: 2px;
+            gap: 4px;
+            max-height: 230px;
+            overflow: hidden;
         }
 
         .step-result-row {
             background: #f8fafc;
             border: 1px solid #e2e8f0;
             color: #1e293b;
-            padding: 7px 12px;
+            padding: 6px 12px;
             border-radius: 8px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 13px;
+            font-size: 12.5px;
             font-weight: 700;
         }
 
@@ -195,10 +188,10 @@
 
         .app-footer {
             text-align: center;
-            font-size: 10.5px;
+            font-size: 10px;
             color: #94a3b8;
             font-weight: 600;
-            margin-top: 10px;
+            margin-top: 8px;
             padding-bottom: 10px;
         }
     </style>
@@ -206,14 +199,12 @@
 <body>
 
     <div class="app-container">
-        <!-- পার্পল টপ হেডার ও জলজল করা প্রোফাইল পিকচার এবং নাম -->
+        <!-- টপ হেডার: গোল বৃত্তে জলজল করা প্রোফাইল পিক ও পাশে নাম[span_4](start_span)[span_4](end_span) -->
         <div class="top-header">
             <div class="header-icon-box">
                 <img src="https://imagepaste.org/i/sawpkd8t.jpg" alt="Profile Icon">
             </div>
-            <div class="header-title-wrap">
-                <div class="header-title">Owner Rafi Boss</div>
-            </div>
+            <div class="header-title">Owner Rafi Boss</div>
         </div>
 
         <!-- মূল সাদা কার্ড ও ইনপুট সেকশন -->
@@ -230,7 +221,7 @@
 
             <button class="calculate-btn" onclick="generateSteps()">Calculate</button>
 
-            <!-- আউটপুট রেজাল্ট দেখানোর জায়গা (৭টি স্টেপ একসাথে দেখানোর জন্য ফিক্সড)[span_3](start_span)[span_3](end_span) -->
+            <!-- আউটপুট রেজাল্ট (৭টি স্টেপ একসাথে ফিট করা)[span_5](start_span)[span_5](end_span) -->
             <div class="results-container" id="steps-output-container"></div>
         </div>
 
@@ -246,12 +237,12 @@
             let container = document.getElementById('steps-output-container');
 
             if (isNaN(balance) || balance <= 0) {
-                container.innerHTML = `<div style="text-align: center; color: #ef4444; font-size: 12px; font-weight: 700; padding: 8px; background: rgba(239, 68, 68, 0.1); border-radius: 6px;">⚠️ সঠিক ব্যালেন্স লিখুন!</div>`;
+                container.innerHTML = `<div style="text-align: center; color: #ef4444; font-size: 12px; font-weight: 700; padding: 6px; background: rgba(239, 68, 68, 0.1); border-radius: 6px;">⚠️ সঠিক ব্যালেন্স লিখুন!</div>`;
                 return;
             }
 
             if (isNaN(totalSteps) || totalSteps <= 0 || totalSteps > 10) {
-                container.innerHTML = `<div style="text-align: center; color: #ef4444; font-size: 12px; font-weight: 700; padding: 8px; background: rgba(239, 68, 68, 0.1); border-radius: 6px;">⚠️ ১ থেকে ১০ এর মধ্যে স্টেপ দিন!</div>`;
+                container.innerHTML = `<div style="text-align: center; color: #ef4444; font-size: 12px; font-weight: 700; padding: 6px; background: rgba(239, 68, 68, 0.1); border-radius: 6px;">⚠️ ১ থেকে ১০ এর মধ্যে স্টেপ দিন!</div>`;
                 return;
             }
 
@@ -287,8 +278,6 @@
 
             container.innerHTML = htmlContent;
         }
-
-        // অটো ডিফল্ট হিসেবে ৭ স্টেপের হিসাব দেখানোর জন্য উইন্ডো লোড হওয়ার সাথে সাথে ট্রিগার করতে পারো বা ব্যালেন্স বসিয়ে ক্যালকুলেট করতে পারো।
     </script>
 </body>
 </html>
