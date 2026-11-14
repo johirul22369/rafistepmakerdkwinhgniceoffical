@@ -170,15 +170,17 @@
         }
 
         /* -----------------------------------------
-           DYNAMIC RESULTS CONTAINER (Scrollable if many steps)
+           DYNAMIC RESULTS CONTAINER (কোনো গ্যাপ বা মার্জিন ছাড়া একসাথে জোড়ানো)
            ----------------------------------------- */
         .results-container {
             display: flex;
             flex-direction: column;
-            gap: 6px;
-            max-height: 260px;
+            gap: 0px; /* গ্যাপ সম্পূর্ণ জিরো করা হয়েছে */
+            max-height: 280px;
             overflow-y: auto;
-            padding-right: 2px;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            background: #f8fafc;
         }
 
         .results-container::-webkit-scrollbar {
@@ -191,16 +193,18 @@
 
         .step-result-row {
             background: #f8fafc;
-            border: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0; /* শুধু নিচে হালকা বর্ডার থাকবে যাতে গ্যাপ ছাড়া নিখুঁত দেখায় */
             color: #1e293b;
-            padding: 8px 14px;
-            border-radius: 10px;
+            padding: 9px 14px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             font-size: 13.5px;
             font-weight: 700;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+
+        .step-result-row:last-child {
+            border-bottom: none;
         }
 
         .step-label {
@@ -257,7 +261,7 @@
 
             <button class="calculate-btn" onclick="generateSteps()">Calculate</button>
 
-            <!-- Dynamic Steps Output Area -->
+            <!-- Dynamic Steps Output Area (Gapless) -->
             <div class="results-container" id="steps-output-container"></div>
         </div>
 
@@ -280,13 +284,13 @@
 
             // Validation for Balance
             if (isNaN(balance) || balance <= 0) {
-                container.innerHTML = `<div style="text-align: center; color: #ef4444; font-size: 13px; font-weight: 700; padding: 10px; background: rgba(239, 68, 68, 0.1); border-radius: 8px;">⚠️ দয়া করে সঠিক ব্যালেন্স লিখুন!</div>`;
+                container.innerHTML = `<div style="text-align: center; color: #ef4444; font-size: 13px; font-weight: 700; padding: 10px;">⚠️ দয়া করে সঠিক ব্যালেন্স লিখুন!</div>`;
                 return;
             }
 
             // Validation for Steps Count (Support up to 20 steps)
             if (isNaN(totalSteps) || totalSteps <= 0 || totalSteps > 20) {
-                container.innerHTML = `<div style="text-align: center; color: #ef4444; font-size: 13px; font-weight: 700; padding: 10px; background: rgba(239, 68, 68, 0.1); border-radius: 8px;">⚠️ ১ থেকে ২০ এর মধ্যে স্টেপ সংখ্যা দিন!</div>`;
+                container.innerHTML = `<div style="text-align: center; color: #ef4444; font-size: 13px; font-weight: 700; padding: 10px;">⚠️ ১ থেকে ২০ এর মধ্যে স্টেপ সংখ্যা দিন!</div>`;
                 return;
             }
 
